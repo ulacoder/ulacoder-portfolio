@@ -38,8 +38,8 @@ export const ui = {
   resume: { en: "Resume", ru: "Резюме" },
   now: { en: "Now building", ru: "Сейчас делаю" },
   nowText: {
-    en: "Veya: AI eye-disease screening that runs on smart glasses",
-    ru: "Veya: AI-скрининг болезней глаз прямо на умных очках",
+    en: "Veya: smart attachment, web platform and AI model for eye screening",
+    ru: "Veya: умная насадка, веб-платформа и ИИ-модель для скрининга глаз",
   },
   numbers: { en: "Numbers", ru: "Цифры" },
   recognized: { en: "Recognized by", ru: "Награды" },
@@ -89,8 +89,8 @@ export const projects: Project[] = [
     live: true,
     href: "https://veya-web-zeta.vercel.app",
     desc: {
-      en: "AI eye-disease screening for smart glasses. MobileNetV2, 81% accuracy, 93% AUC, results in 2–3 s.",
-      ru: "AI-скрининг болезней глаз для умных очков. MobileNetV2, 81% точности, AUC 93%, ответ за 2–3 с.",
+      en: "Eye-disease screening: a smart attachment, a web platform and our own AI model.",
+      ru: "Скрининг болезней глаз: умная насадка, веб-платформа и своя ИИ-модель.",
     },
   },
   {
