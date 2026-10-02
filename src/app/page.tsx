@@ -10,6 +10,7 @@ import {
   PaperPlaneIcon,
 } from "@radix-ui/react-icons";
 import FlowField from "@/components/FlowField";
+import TiltPhoto from "@/components/TiltPhoto";
 import { awards, numbers, projects, site, stack, story, ui, work, type Lang } from "@/lib/content";
 
 function Rich({ text }: { text: string }) {
@@ -166,28 +167,34 @@ export default function Home() {
 
         {/* visual */}
         <section
-          className="card rise relative min-h-[460px] overflow-hidden lg:col-span-4 lg:min-h-[540px]"
+          className="rise relative min-h-[460px] lg:col-span-4 lg:min-h-[540px]"
           style={{ animationDelay: "80ms" }}
         >
           {site.photo ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={site.photo} alt={site.name} className="absolute inset-0 h-full w-full object-cover object-[50%_35%]" />
+            <div className="absolute inset-0">
+              <TiltPhoto
+                src={site.photo}
+                alt={site.name}
+                labels={[
+                  { text: t(ui.labelA), className: "left-5 top-5", rot: -10 },
+                  { text: t(ui.labelB), className: "right-5 top-7", rot: 6 },
+                  { text: t(ui.labelC), className: "bottom-12 left-5", rot: -5 },
+                ]}
+                footer={
+                  <div className="pointer-events-none absolute inset-x-4 bottom-4 flex items-end justify-between font-mono text-[10px] uppercase tracking-widest text-white/70">
+                    <span>
+                      <span className="text-accent">●</span> @{site.handle}
+                    </span>
+                    <span>2026</span>
+                  </div>
+                }
+              />
+            </div>
           ) : (
-            <FlowField />
+            <div className="card absolute inset-0 overflow-hidden">
+              <FlowField />
+            </div>
           )}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
-          <span className="pointer-events-none absolute left-4 top-4 -rotate-6 font-mono text-sm italic text-accent [text-shadow:0_1px_8px_rgba(0,0,0,.7)]">
-            {t(ui.labelA)}
-          </span>
-          <span className="pointer-events-none absolute right-4 top-6 rotate-6 font-mono text-sm italic text-accent [text-shadow:0_1px_8px_rgba(0,0,0,.7)]">
-            {t(ui.labelB)}
-          </span>
-          <div className="pointer-events-none absolute inset-x-4 bottom-4 flex items-end justify-between font-mono text-[10px] uppercase tracking-widest text-white/60">
-            <span>
-              <span className="text-accent">●</span> @{site.handle}
-            </span>
-            <span>2026</span>
-          </div>
         </section>
 
         {/* numbers */}

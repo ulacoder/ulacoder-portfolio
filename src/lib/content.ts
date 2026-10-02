@@ -53,6 +53,7 @@ export const ui = {
   tagline: { en: "CODE. PLAY. REPEAT.", ru: "CODE. PLAY. REPEAT." },
   labelA: { en: "builder", ru: "builder" },
   labelB: { en: "footballer", ru: "footballer" },
+  labelC: { en: "coder", ru: "coder" },
 } satisfies Record<string, T>;
 
 export const numbers: { value: string | T; label: T }[] = [

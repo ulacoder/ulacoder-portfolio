@@ -21,6 +21,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-pixel: var(--font-geist-pixel-square);
+  --font-hand: var(--font-caveat);
 }
 
 html {
@@ -76,4 +77,88 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .rise, .cursor { animation: none; }
+}
+
+/* ---------- hero photo: tilt + holo ---------- */
+.tilt-stage {
+  perspective: 1000px;
+}
+.tilt-card {
+  --mx: 0.5;
+  --my: 0.5;
+  --h: 0;
+  border: 1px solid var(--line);
+  transform-style: preserve-3d;
+  transform: rotateX(calc((0.5 - var(--my)) * 16deg * var(--h)))
+    rotateY(calc((var(--mx) - 0.5) * 18deg * var(--h)));
+  box-shadow: 0 calc(20px * var(--h)) calc(60px * var(--h)) rgba(0, 0, 0, 0.55);
+  will-change: transform;
+}
+.tilt-img {
+  transform: translate3d(calc((0.5 - var(--mx)) * 22px * var(--h)), calc((0.5 - var(--my)) * 22px * var(--h)), 0)
+    scale(calc(1.02 + 0.07 * var(--h)));
+  will-change: transform;
+}
+.tilt-img img {
+  filter: saturate(calc(1 + 0.25 * var(--h))) contrast(calc(1 + 0.06 * var(--h)));
+}
+.tilt-tint {
+  background:
+    linear-gradient(135deg, rgba(255, 106, 43, 0.22) 0%, transparent 45%),
+    linear-gradient(315deg, rgba(56, 89, 255, 0.26) 0%, transparent 50%);
+  mix-blend-mode: soft-light;
+}
+.tilt-holo {
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 0, 128, 0.55) 32%,
+    rgba(255, 196, 0, 0.55) 40%,
+    rgba(0, 255, 170, 0.55) 48%,
+    rgba(0, 160, 255, 0.55) 56%,
+    rgba(160, 80, 255, 0.55) 64%,
+    transparent 78%
+  );
+  background-size: 260% 260%;
+  background-position: calc(var(--mx) * 100%) calc(var(--my) * 100%);
+  mix-blend-mode: color-dodge;
+  opacity: calc(0.12 + 0.38 * var(--h));
+}
+.tilt-spot {
+  background: radial-gradient(
+    circle at calc(var(--mx) * 100%) calc(var(--my) * 100%),
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.08) 25%,
+    transparent 55%
+  );
+  mix-blend-mode: soft-light;
+  opacity: var(--h);
+}
+.tilt-glare {
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.28) 50%, transparent 62%);
+  transform: translateX(-130%);
+}
+.tilt-card.sweep .tilt-glare {
+  animation: glare 0.9s cubic-bezier(0.3, 0.6, 0.2, 1) both;
+}
+@keyframes glare {
+  from { transform: translateX(-130%); }
+  to { transform: translateX(130%); }
+}
+.tilt-label {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+  transform: translate3d(calc((var(--mx) - 0.5) * 14px * var(--h)), calc((var(--my) - 0.5) * 14px * var(--h)), 40px)
+    rotate(calc(var(--r) + (var(--mx) - 0.5) * 10deg * var(--h)));
+  animation: label-pop 0.6s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+  animation-delay: 0.5s;
+}
+.tilt-label:nth-of-type(2) { animation-delay: 0.7s; }
+.tilt-label:nth-of-type(3) { animation-delay: 0.9s; }
+@keyframes label-pop {
+  from { opacity: 0; scale: 0.6; }
+  to { opacity: 1; scale: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt-label { animation: none; }
 }
