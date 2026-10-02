@@ -3,6 +3,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { GeistPixelSquare } from "geist/font/pixel";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const hand = localFont({
@@ -13,10 +14,10 @@ const hand = localFont({
 
 export const metadata: Metadata = {
   title: "Ulagat Nurtas — @ulacoder",
-  description: "Ulagat Nurtas (@ulacoder). Coding for a year, football since 4. AI, robotics and web projects.",
+  description: "Ulagat Nurtas (@ulacoder). 16, NIS Kokshetau. Robotics, AI and Veya, an affordable AI eye screening system.",
   openGraph: {
     title: "Ulagat Nurtas — @ulacoder",
-    description: "Coding for a year, football since 4. AI, robotics and web projects.",
+    description: "Robotics, AI and Veya, an affordable AI eye screening system.",
     type: "website",
   },
   twitter: { card: "summary" },
@@ -28,7 +29,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable} ${GeistPixelSquare.variable} ${hand.variable} antialiased`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
