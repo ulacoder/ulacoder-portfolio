@@ -5,7 +5,7 @@ type T = Record<Lang, string>;
 
 export const site = {
   handle: "ulacoder",
-  name: "ULAGAT NURTAS",
+  name: { en: "ULAGAT NURTAS", ru: "УЛАГАТ НУРТАС" },
   email: "nurtasulagat@gmail.com",
   telegram: "https://t.me/ulacoder",
   github: "https://github.com/ulacoder",
@@ -33,7 +33,7 @@ export const ui = {
   },
   bio: {
     en: "I'm **Nurtas Ulagat**, 16, from **Kokshetau, Kazakhstan**. I got into programming through **robotics** and my passion for building things. What started with **Arduino** and robotics competitions gradually turned into **AI**, software development and **startups**. I've built several projects and earned placements at **WRO** and hackathons. My biggest focus right now is **Veya**, an affordable AI-powered eye screening system that turns a smartphone into a portable retinal camera. I built the prototype, trained an AI model and conducted customer interviews. I'm now working on turning Veya into a **real startup** while preparing for international competitions and opportunities in AI and engineering.",
-    ru: "Я **Nurtas Ulagat**, мне 16, я из **Кокшетау, Казахстан**. В программирование пришёл через **робототехнику** и любовь собирать что-то своими руками. Всё началось с **Arduino** и соревнований по робототехнике, а потом переросло в **AI**, разработку софта и **стартапы**. Сделал несколько проектов, брал призовые места на **WRO** и хакатонах. Главное, чем я сейчас занят, — **Veya**: доступная система скрининга глаз на AI, которая превращает смартфон в портативную камеру для сетчатки. Я собрал прототип, обучил AI-модель и провёл интервью с клиентами. Сейчас превращаю Veya в **настоящий стартап** и готовлюсь к международным соревнованиям и возможностям в AI и инженерии.",
+    ru: "Я **Улагат Нуртас**, мне 16, я из **Кокшетау, Казахстан**. В программирование пришёл через **робототехнику** и любовь собирать что-то своими руками. Всё началось с **Arduino** и соревнований по робототехнике, а потом переросло в **AI**, разработку софта и **стартапы**. Сделал несколько проектов, брал призовые места на **WRO** и хакатонах. Главное, чем я сейчас занят, — **Veya**: доступная система скрининга глаз на AI, которая превращает смартфон в портативную камеру для сетчатки. Я собрал прототип, обучил AI-модель и провёл интервью с клиентами. Сейчас превращаю Veya в **настоящий стартап** и готовлюсь к международным соревнованиям и возможностям в AI и инженерии.",
   },
   resume: { en: "Resume", ru: "Резюме" },
   now: { en: "Now building", ru: "Сейчас делаю" },

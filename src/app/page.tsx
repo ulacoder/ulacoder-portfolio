@@ -106,7 +106,8 @@ export default function Home() {
   }, [lang]);
 
   const t = (v: Record<Lang, string>) => v[lang];
-  const nameDone = 0.15 + site.name.length * 0.035 + 0.3;
+  const name = site.name[lang];
+  const nameDone = 0.15 + name.length * 0.035 + 0.3;
 
   return (
     <MotionConfig reducedMotion="user">
@@ -141,8 +142,8 @@ export default function Home() {
           <Reveal className="md:col-span-2 lg:col-span-5">
             <Card className="flex flex-col p-7 sm:p-9">
               <p className="label">{t(ui.hi)}</p>
-              <h1 className="mt-5 font-pixel text-[44px] font-medium leading-[0.95] tracking-tight sm:text-[52px]">
-                <LetterReveal text={site.name} />
+              <h1 className={`mt-5 ${lang === "ru" ? "font-mono" : "font-pixel"} text-[44px] font-medium leading-[0.95] tracking-tight sm:text-[52px]`}>
+                <LetterReveal key={lang} text={name} />
               </h1>
               <After delay={nameDone - 0.15}>
                 <p className="mt-3 font-mono text-sm text-accent">
@@ -190,7 +191,7 @@ export default function Home() {
               <div className="absolute inset-0">
                 <TiltPhoto
                   src={site.photo}
-                  alt={site.name}
+                  alt={name}
                   labels={[
                     { text: t(ui.labelA), className: "left-6 top-6", rot: -10 },
                     { text: t(ui.labelB), className: "right-6 top-8", rot: 6 },
