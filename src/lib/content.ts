@@ -103,7 +103,7 @@ export const projects: Project[] = [
     },
   },
   {
-    name: "EduAI.kz",
+    name: "FMEdu",
     href: "https://github.com/ulacoder/FM-Edu",
     tag: { en: "1st place", ru: "1 место" },
     desc: {
