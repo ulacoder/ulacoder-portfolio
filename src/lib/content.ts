@@ -28,8 +28,8 @@ export const ui = {
   hi: { en: "Hi, I am", ru: "Привет, я" },
   role: { en: "Embedded AI & Robotics", ru: "Embedded AI и робототехника" },
   quote: {
-    en: "Wanted my own 2GIS. Started coding. Never stopped.",
-    ru: "Хотел свой 2ГИС. Начал кодить. Не остановился.",
+    en: "Work. Eat. Repeat.",
+    ru: "Work. Eat. Repeat.",
   },
   bio: {
     en: "Coding for **a year**, playing football since **I was 4**. Building with AI, robotics and the web.",
