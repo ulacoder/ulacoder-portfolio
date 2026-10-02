@@ -16,9 +16,9 @@ export const site = {
   // Gallery photos from /public/gallery.
   gallery: [
     "/gallery/01-hackathon.jpg",
+    "/gallery/04-football.jpg",
     "/gallery/02-code.jpg",
     "/gallery/03-suit.jpg",
-    "/gallery/04-football.jpg",
     "/gallery/05-football.jpg",
     "/gallery/06-sunset.jpg",
   ] as string[],
@@ -32,14 +32,14 @@ export const ui = {
     ru: "Work. Eat. Repeat.",
   },
   bio: {
-    en: "Coding for **a year**, playing football since **I was 4**. Building with AI, robotics and the web.",
-    ru: "**Год** в коде, в футболе **с 4 лет**. Делаю проекты на AI, робототехнике и вебе.",
+    en: "**16**, from **Kokshetau**. Came to programming through **robotics**: Arduino, WRO, then AI, software and startups. Playing football **since 4**.",
+    ru: "**16 лет**, из **Кокшетау**. Пришёл в программирование через **робототехнику**: Arduino, WRO, потом AI, софт и стартапы. В футболе **с 4 лет**.",
   },
   resume: { en: "Resume", ru: "Резюме" },
   now: { en: "Now building", ru: "Сейчас делаю" },
   nowText: {
-    en: "Veya: smart attachment, web platform and AI model for eye screening",
-    ru: "Veya: умная насадка, веб-платформа и ИИ-модель для скрининга глаз",
+    en: "Veya: affordable AI eye screening that turns a smartphone into a retinal camera",
+    ru: "Veya: доступный AI-скрининг глаз, который превращает смартфон в камеру для сетчатки",
   },
   numbers: { en: "Numbers", ru: "Цифры" },
   recognized: { en: "Recognized by", ru: "Награды" },
@@ -57,28 +57,32 @@ export const ui = {
 } satisfies Record<string, T>;
 
 export const numbers: { value: string | T; label: T }[] = [
+  { value: "16", label: { en: "Years old, Kokshetau", ru: "Лет, Кокшетау" } },
   { value: { en: "since 4", ru: "с 4 лет" }, label: { en: "Playing football", ru: "Играю в футбол" } },
   { value: { en: "1 year", ru: "1 год" }, label: { en: "Writing code", ru: "Пишу код" } },
-  { value: "150,000 ₸", label: { en: "Hackathon prize, Team Jacket", ru: "Приз хакатона, Team Jacket" } },
-  { value: "10", label: { en: "Projects on this page", ru: "Проектов на этой странице" } },
+  { value: "$700+", label: { en: "Earned freelancing", ru: "Заработал на фрилансе" } },
 ];
 
 export const awards: T[] = [
+  { en: "StartUp Orda by Astana Hub", ru: "StartUp Orda by Astana Hub" },
   { en: "Future Minds Hackathon 2026, 1st", ru: "Future Minds Hackathon 2026, 1 место" },
   { en: "WRO 2026 Regional, 2nd", ru: "WRO 2026, регион, 2 место" },
+  { en: "WRO 2025, 3rd", ru: "WRO 2025, 3 место" },
 ];
 
 // Paragraphs. **bold** is highlighted.
 export const story: Record<Lang, string[]> = {
   en: [
-    "Football has been my thing since **I was 4**: I play it, watch it and follow everything around it.",
-    "I started coding **a year ago**. I wanted to build my own **2GIS alternative**, and that one project pulled me into the whole environment: web, AI, hardware, hackathons.",
-    "Since then: **1st place and 150,000 ₸** at the Future Minds hackathon with **Team Jacket**, and the projects you see here.",
+    "I'm **Nurtas Ulagat**, 16, from **Kokshetau, Kazakhstan**. I got into programming through **robotics** and my passion for building things.",
+    "What started with **Arduino** and **robotics competitions** gradually turned into **AI**, software development and **startups**. I've built several projects and earned placements at **WRO** and hackathons.",
+    "My biggest focus right now is **Veya**, an affordable AI-powered eye screening system that turns a **smartphone into a portable retinal camera**. I built the prototype, trained an AI model and conducted customer interviews.",
+    "I'm now working on turning Veya into a **real startup** while preparing for international competitions and opportunities in **AI and engineering**.",
   ],
   ru: [
-    "Футбол — моя тема **с 4 лет**: играю, смотрю и слежу за всем, что вокруг него происходит.",
-    "Кодить начал **год назад**. Хотел сделать свой **аналог 2ГИС** — и этот проект затянул меня во всё это окружение: веб, AI, железо, хакатоны.",
-    "С тех пор — **1 место и 150 000 ₸** на хакатоне Future Minds с командой **Team Jacket** и проекты, которые ты видишь здесь.",
+    "Я **Nurtas Ulagat**, мне 16, я из **Кокшетау, Казахстан**. В программирование пришёл через **робототехнику** и любовь собирать что-то своими руками.",
+    "Всё началось с **Arduino** и **соревнований по робототехнике**, а потом постепенно переросло в **AI**, разработку софта и **стартапы**. Сделал несколько проектов, брал призовые места на **WRO** и хакатонах.",
+    "Главное, чем я сейчас занят, — **Veya**: доступная система скрининга глаз на AI, которая превращает **смартфон в портативную камеру для сетчатки**. Я собрал прототип, обучил AI-модель и провёл интервью с клиентами.",
+    "Сейчас превращаю Veya в **настоящий стартап** и параллельно готовлюсь к международным соревнованиям и возможностям в **AI и инженерии**.",
   ],
 };
 
@@ -90,8 +94,8 @@ export const projects: Project[] = [
     live: true,
     href: "https://veya-web-zeta.vercel.app",
     desc: {
-      en: "Eye-disease screening: a smart attachment, a web platform and our own AI model.",
-      ru: "Скрининг болезней глаз: умная насадка, веб-платформа и своя ИИ-модель.",
+      en: "Affordable AI eye screening: a smart attachment turns a smartphone into a portable retinal camera, plus a web platform and our own AI model.",
+      ru: "Доступный AI-скрининг глаз: умная насадка превращает смартфон в портативную камеру для сетчатки, плюс веб-платформа и своя AI-модель.",
     },
   },
   {
@@ -129,45 +133,12 @@ export const projects: Project[] = [
     },
   },
   {
-    name: "NAZAR",
-    href: "https://github.com/ulacoder/nazar",
-    desc: {
-      en: "Local, anonymous classroom observation: pose, action and head-direction models on a webcam feed.",
-      ru: "Локальное анонимное наблюдение за классом: модели позы, действий и направления головы на видео.",
-    },
-  },
-  {
-    name: "Isida AI",
-    href: "https://github.com/ulacoder/isida-ai",
-    desc: {
-      en: "Voice assistant with memory and vision on Gemini 2.0 Flash. Works on iOS and Android.",
-      ru: "Голосовой ассистент с памятью и зрением на Gemini 2.0 Flash. Работает на iOS и Android.",
-    },
-  },
-  {
     name: "Mentoria Hub",
     live: true,
     href: "https://mentoria-hub-hazel.vercel.app",
     desc: {
       en: "Scholarships, olympiads and summer programs in one place, plus self-paced courses and a Telegram bot.",
       ru: "Стипендии, олимпиады и летние программы в одном месте, плюс курсы и Telegram-бот.",
-    },
-  },
-  {
-    name: "GRBL 28BYJ-48",
-    href: "https://github.com/ulacoder/GRBL-28byj-48",
-    desc: {
-      en: "CNC pen-plotter firmware for $2 stepper motors on an Arduino Nano. SVG → G-code → paper.",
-      ru: "Прошивка пен-плоттера на шаговиках за $2 и Arduino Nano. SVG → G-code → бумага.",
-    },
-  },
-  {
-    name: "EcoSayahat",
-    live: true,
-    href: "https://frontend-sandy-three-60.vercel.app",
-    desc: {
-      en: "Eco-tourism platform for Kazakhstan: 360° tours, eco-taxis and EcoCoins for cleaning up nature.",
-      ru: "Платформа экотуризма по Казахстану: 360° туры, эко-такси и EcoCoins за заботу о природе.",
     },
   },
 ];
@@ -181,7 +152,7 @@ export const stack: { group: T; items: string[] }[] = [
 export const work: { title: T; meta: T; points: T[] }[] = [
   {
     title: { en: "Freelance web developer", ru: "Веб-разработчик, фриланс" },
-    meta: { en: "Restaurants & local businesses · $300", ru: "Рестораны и местный бизнес · $300" },
+    meta: { en: "Restaurants & local businesses · $700+", ru: "Рестораны и местный бизнес · $700+" },
     points: [
       { en: "Built and deployed sites from first call to launch", ru: "Делал и запускал сайты — от первого созвона до деплоя" },
       { en: "Responsive layouts that owners can actually use", ru: "Адаптивные сайты, которыми владельцам удобно пользоваться" },

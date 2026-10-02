@@ -1,8 +1,8 @@
 "use client";
 
 import { Fragment, useEffect, useRef, useState } from "react";
+import { motion, MotionConfig } from "motion/react";
 import {
-  ArrowTopRightIcon,
   EnvelopeClosedIcon,
   FileTextIcon,
   GitHubLogoIcon,
@@ -11,6 +11,18 @@ import {
 } from "@radix-ui/react-icons";
 import FlowField from "@/components/FlowField";
 import TiltPhoto from "@/components/TiltPhoto";
+import {
+  After,
+  Card,
+  CopyEmail,
+  CountUp,
+  LetterReveal,
+  Magnetic,
+  ProjectRow,
+  Reveal,
+  SocialIcon,
+  StickyHeader,
+} from "@/components/motion";
 import { awards, numbers, projects, site, stack, story, ui, work, type Lang } from "@/lib/content";
 
 function Rich({ text }: { text: string }) {
@@ -24,26 +36,19 @@ function Rich({ text }: { text: string }) {
 }
 
 const socials = [
-  { href: site.github, label: "GitHub", Icon: GitHubLogoIcon },
-  { href: site.linkedin, label: "LinkedIn", Icon: LinkedInLogoIcon },
-  { href: site.telegram, label: "Telegram", Icon: PaperPlaneIcon },
-  { href: `mailto:${site.email}`, label: "Email", Icon: EnvelopeClosedIcon },
+  { href: site.github, label: "GitHub", sub: "@ulacoder", Icon: GitHubLogoIcon },
+  { href: site.linkedin, label: "LinkedIn", sub: "Ulagat Nurtas", Icon: LinkedInLogoIcon },
+  { href: site.telegram, label: "Telegram", sub: "@ulacoder", Icon: PaperPlaneIcon },
+  { href: `mailto:${site.email}`, label: "Email", sub: site.email, Icon: EnvelopeClosedIcon },
 ];
 
 function Socials() {
   return (
     <div className="flex items-center gap-1">
-      {socials.map(({ href, label, Icon }) => (
-        <a
-          key={label}
-          href={href}
-          target={href.startsWith("http") ? "_blank" : undefined}
-          rel="noopener noreferrer"
-          aria-label={label}
-          className="grid size-8 place-items-center rounded-md text-muted transition-colors hover:bg-white/5 hover:text-fg"
-        >
-          <Icon className="size-4" />
-        </a>
+      {socials.map(({ href, label, sub, Icon }) => (
+        <SocialIcon key={label} href={href} label={label} sub={sub}>
+          <Icon className="size-[18px]" />
+        </SocialIcon>
       ))}
     </div>
   );
@@ -75,7 +80,7 @@ function Typewriter({ text }: { text: string }) {
   }, [go, text]);
 
   return (
-    <span ref={ref} aria-label={text} className="font-pixel text-3xl tracking-wide text-fg sm:text-4xl">
+    <span ref={ref} aria-label={text} className="font-pixel text-4xl tracking-wide text-fg sm:text-5xl">
       <span aria-hidden>{go ? text.slice(0, n) : " "}</span>
       <span aria-hidden className="cursor ml-1 inline-block h-[0.8em] w-[0.5em] translate-y-[0.08em] bg-accent" />
     </span>
@@ -101,275 +106,294 @@ export default function Home() {
   }, [lang]);
 
   const t = (v: Record<Lang, string>) => v[lang];
+  const nameDone = 0.15 + site.name.length * 0.035 + 0.3;
 
   return (
-    <div className="mx-auto max-w-[1180px] px-4 pb-10 sm:px-6">
-      {/* top bar */}
-      <header className="flex items-center justify-between py-6">
-        <a href="#" className="font-mono text-xs text-muted transition-colors hover:text-fg">
+    <MotionConfig reducedMotion="user">
+      <StickyHeader>
+        <a href="#" className="font-mono text-sm tracking-wider text-muted transition-colors hover:text-fg">
           <span className="text-accent">[u]</span> {site.handle}.dev
         </a>
-        <div className="flex items-center gap-1 font-mono text-[11px]">
+        <motion.div
+          className="flex items-center gap-1 font-mono text-xs"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.4 }}
+        >
           {(["en", "ru"] as const).map((l, i) => (
             <Fragment key={l}>
               {i > 0 && <span className="text-dim">/</span>}
               <button
                 onClick={() => setLang(l)}
                 aria-pressed={lang === l}
-                className={`px-1 uppercase transition-colors ${lang === l ? "text-fg" : "text-dim hover:text-muted"}`}
+                className={`cursor-pointer px-1 uppercase transition-colors duration-200 ${lang === l ? "text-fg" : "text-dim hover:text-muted"}`}
               >
                 {l}
               </button>
             </Fragment>
           ))}
-        </div>
-      </header>
+        </motion.div>
+      </StickyHeader>
 
-      <main className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-12">
-        {/* intro */}
-        <section className="card rise flex flex-col p-6 sm:p-7 md:col-span-2 lg:col-span-5">
-          <p className="label">{t(ui.hi)}</p>
-          <h1 className="mt-4 font-pixel text-[2.6rem] font-medium leading-[0.95] tracking-tight sm:text-5xl">
-            {site.name}
-          </h1>
-          <p className="mt-2 font-mono text-xs text-accent">
-            @{site.handle} · {t(ui.role)}
-          </p>
-          <p className="mt-5 rounded-md border border-line bg-white/[0.03] px-3 py-2.5 text-sm font-medium leading-snug text-fg">
-            {t(ui.quote)}
-          </p>
-          <p className="rich mt-4 text-[14px] leading-relaxed text-muted">
-            <Rich text={t(ui.bio)} />
-          </p>
-          <div className="mt-auto pt-6">
-            <div className="flex items-start gap-3 rounded-md border border-dashed border-line px-3 py-2.5">
-              <span className="relative mt-1.5 flex size-2 shrink-0">
-                <span className="absolute inset-0 animate-ping rounded-full bg-accent/60 motion-reduce:hidden" />
-                <span className="relative size-2 rounded-full bg-accent" />
-              </span>
-              <div>
-                <p className="label">{t(ui.now)}</p>
-                <p className="mt-0.5 text-[13px] text-fg">{t(ui.nowText)}</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-5">
-            <Socials />
-            <a
-              href={site.resume}
-              target="_blank"
-              className="inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-muted transition-colors hover:border-accent hover:text-fg"
-            >
-              <FileTextIcon className="size-3.5" /> {t(ui.resume)}
-            </a>
-          </div>
-        </section>
-
-        {/* visual */}
-        <section
-          className="rise relative min-h-[460px] lg:col-span-4 lg:min-h-[540px]"
-          style={{ animationDelay: "80ms" }}
-        >
-          {site.photo ? (
-            <div className="absolute inset-0">
-              <TiltPhoto
-                src={site.photo}
-                alt={site.name}
-                labels={[
-                  { text: t(ui.labelA), className: "left-5 top-5", rot: -10 },
-                  { text: t(ui.labelB), className: "right-5 top-7", rot: 6 },
-                  { text: t(ui.labelC), className: "bottom-12 left-5", rot: -5 },
-                ]}
-                footer={
-                  <div className="pointer-events-none absolute inset-x-4 bottom-4 flex items-end justify-between font-mono text-[10px] uppercase tracking-widest text-white/70">
-                    <span>
-                      <span className="text-accent">●</span> @{site.handle}
-                    </span>
-                    <span>2026</span>
+      <main className="mx-auto max-w-[1280px] px-5 pb-12 pt-8 sm:px-8 lg:pt-12">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12">
+          {/* intro */}
+          <Reveal className="md:col-span-2 lg:col-span-5">
+            <Card className="flex flex-col p-7 sm:p-9">
+              <p className="label">{t(ui.hi)}</p>
+              <h1 className="mt-5 font-pixel text-[44px] font-medium leading-[0.95] tracking-tight sm:text-[52px]">
+                <LetterReveal text={site.name} />
+              </h1>
+              <After delay={nameDone - 0.15}>
+                <p className="mt-3 font-mono text-sm text-accent">
+                  @{site.handle} · {t(ui.role)}
+                </p>
+              </After>
+              <After delay={nameDone}>
+                <p className="mt-6 inline-block rounded-md border border-line bg-white/[0.04] px-4 py-2.5 text-base font-medium text-fg">
+                  {t(ui.quote)}
+                </p>
+              </After>
+              <After delay={nameDone + 0.1}>
+                <p className="rich mt-5 text-[17px] leading-relaxed text-muted">
+                  <Rich text={t(ui.bio)} />
+                </p>
+              </After>
+              <After delay={nameDone + 0.25} className="mt-auto pt-8">
+                <div className="flex items-start gap-3 rounded-lg border border-dashed border-line px-4 py-3">
+                  <span className="relative mt-1.5 flex size-2 shrink-0">
+                    <span className="absolute inset-0 animate-ping rounded-full bg-accent/60 motion-reduce:hidden" />
+                    <span className="relative size-2 rounded-full bg-accent" />
+                  </span>
+                  <div>
+                    <p className="label">{t(ui.now)}</p>
+                    <p className="mt-1 text-[15px] leading-snug text-fg">{t(ui.nowText)}</p>
                   </div>
-                }
-              />
-            </div>
-          ) : (
-            <div className="card absolute inset-0 overflow-hidden">
-              <FlowField />
-            </div>
-          )}
-        </section>
+                </div>
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-6">
+                  <Socials />
+                  <Magnetic
+                    href={site.resume}
+                    external
+                    className="inline-flex items-center gap-1.5 rounded-full border border-line px-4 py-2 font-mono text-xs uppercase tracking-wider text-muted transition-colors hover:border-accent hover:text-fg"
+                  >
+                    <FileTextIcon className="size-4" /> {t(ui.resume)}
+                  </Magnetic>
+                </div>
+              </After>
+            </Card>
+          </Reveal>
 
-        {/* numbers */}
-        <section className="card rise p-6 lg:col-span-3" style={{ animationDelay: "160ms" }}>
-          <p className="label">{t(ui.numbers)}</p>
-          <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-4 lg:grid-cols-1 lg:gap-y-3.5">
-            {numbers.map((n) => (
-              <div key={n.label.en}>
-                <dt className="text-2xl font-semibold tracking-tight">
-                  {typeof n.value === "string" ? n.value : t(n.value)}
-                </dt>
-                <dd className="label mt-0.5 leading-snug">{t(n.label)}</dd>
+          {/* photo */}
+          <Reveal delay={100} className="relative min-h-[520px] lg:col-span-4 lg:min-h-[620px]">
+            {site.photo ? (
+              <div className="absolute inset-0">
+                <TiltPhoto
+                  src={site.photo}
+                  alt={site.name}
+                  labels={[
+                    { text: t(ui.labelA), className: "left-6 top-6", rot: -10 },
+                    { text: t(ui.labelB), className: "right-6 top-8", rot: 6 },
+                    { text: t(ui.labelC), className: "bottom-14 left-6", rot: -5 },
+                  ]}
+                  footer={
+                    <div className="pointer-events-none absolute inset-x-5 bottom-5 flex items-end justify-between font-mono text-[11px] uppercase tracking-widest text-white/75">
+                      <span>
+                        <span className="text-accent">●</span> @{site.handle}
+                      </span>
+                      <span>2026</span>
+                    </div>
+                  }
+                />
               </div>
-            ))}
-          </dl>
-          <div className="mt-6 border-t border-line pt-4">
-            <p className="label">{t(ui.recognized)}</p>
-            <ul className="mt-3 space-y-1.5">
-              {awards.map((a) => (
-                <li key={a.en} className="font-mono text-[11px] uppercase leading-snug tracking-wide text-muted">
-                  {t(a)}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+            ) : (
+              <div className="card absolute inset-0 overflow-hidden">
+                <FlowField />
+              </div>
+            )}
+          </Reveal>
 
-        <div className="grid gap-3 md:col-span-2 md:grid-cols-2 lg:col-span-5 lg:flex lg:flex-col">
-        {/* story */}
-        <section className="card p-6 sm:p-7 md:col-span-1">
-          <p className="label">{t(ui.story)}</p>
-          <div className="rich mt-4 space-y-4 text-[14px] leading-relaxed text-muted">
-            {story[lang].map((p, i) => (
-              <p key={i}>
-                <Rich text={p} />
-              </p>
-            ))}
-          </div>
-        </section>
-
-        {/* work */}
-        <section className="card p-6 sm:p-7 md:col-span-1">
-          <p className="label">{t(ui.work)}</p>
-          <div className="mt-4 space-y-5">
-            {work.map((w) => (
-              <div key={w.title.en}>
-                <p className="font-semibold">{t(w.title)}</p>
-                <p className="font-mono text-[11px] text-dim">{t(w.meta)}</p>
-                <ul className="mt-2 space-y-1 text-[13px] text-muted">
-                  {w.points.map((pt) => (
-                    <li key={pt.en} className="flex gap-2">
-                      <span className="text-accent">›</span>
-                      {t(pt)}
-                    </li>
+          {/* numbers */}
+          <Reveal delay={200} className="lg:col-span-3">
+            <Card className="p-7 sm:p-8">
+              <p className="label">{t(ui.numbers)}</p>
+              <div className="mt-5 grid grid-cols-2 gap-x-5 gap-y-6 lg:grid-cols-1 lg:gap-y-5">
+                {numbers.map((n, i) => (
+                  <CountUp
+                    key={n.label.en}
+                    value={typeof n.value === "string" ? n.value : t(n.value)}
+                    label={t(n.label)}
+                    delay={i * 120}
+                  />
+                ))}
+              </div>
+              <div className="mt-7 border-t border-line pt-5">
+                <p className="label">{t(ui.recognized)}</p>
+                <ul className="mt-3 space-y-2">
+                  {awards.map((a, i) => (
+                    <motion.li
+                      key={a.en}
+                      className="font-mono text-xs uppercase leading-snug tracking-wide text-muted"
+                      initial={{ opacity: 0, x: -8 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.8 }}
+                      transition={{ duration: 0.4, delay: 0.3 + i * 0.08 }}
+                    >
+                      <span className="mr-1.5 text-accent">▸</span>
+                      {t(a)}
+                    </motion.li>
                   ))}
                 </ul>
               </div>
-            ))}
+            </Card>
+          </Reveal>
+
+          {/* left column: story + work + stack */}
+          <div className="grid gap-4 md:col-span-2 lg:col-span-5 lg:flex lg:flex-col">
+            <Reveal className="md:col-span-2">
+              <Card className="p-7 sm:p-9">
+                <p className="label">{t(ui.story)}</p>
+                <div className="rich mt-5 space-y-4 text-[16px] leading-relaxed text-muted">
+                  {story[lang].map((p, i) => (
+                    <p key={i}>
+                      <Rich text={p} />
+                    </p>
+                  ))}
+                </div>
+              </Card>
+            </Reveal>
+
+            <Reveal delay={80} className="lg:flex-1">
+              <Card className="p-7 sm:p-9">
+                <p className="label">{t(ui.work)}</p>
+                <div className="mt-5 space-y-6">
+                  {work.map((w) => (
+                    <div key={w.title.en}>
+                      <p className="text-lg font-medium">{t(w.title)}</p>
+                      <p className="font-mono text-xs text-dim">{t(w.meta)}</p>
+                      <ul className="mt-2.5 space-y-1.5 text-[15px] text-muted">
+                        {w.points.map((pt) => (
+                          <li key={pt.en} className="flex gap-2">
+                            <span className="text-accent">›</span>
+                            {t(pt)}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </Reveal>
+
           </div>
-        </section>
+
+          {/* projects */}
+          <Reveal delay={100} className="md:col-span-2 lg:col-span-7">
+            <Card className="p-7 sm:p-9">
+              <div className="flex items-baseline justify-between">
+                <p className="label">{t(ui.projects)}</p>
+                <p className="label">2025 — {lang === "ru" ? "сейчас" : "present"}</p>
+              </div>
+              <div className="mt-4">
+                {projects.map((p, i) => (
+                  <Reveal key={p.name} delay={i * 70} y={12}>
+                    <ProjectRow
+                      index={String(i + 1).padStart(2, "0")}
+                      name={p.name}
+                      desc={t(p.desc)}
+                      href={p.href}
+                      last={i === projects.length - 1}
+                      badges={
+                        <>
+                          {p.live && (
+                            <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-emerald-400">
+                              <span className="status-pulse size-1.5 rounded-full bg-emerald-400" /> {t(ui.live)}
+                            </span>
+                          )}
+                          {p.tag && (
+                            <span className="rounded border border-accent/40 px-1.5 py-0.5 font-mono text-[11px] uppercase tracking-wider text-accent">
+                              {t(p.tag)}
+                            </span>
+                          )}
+                        </>
+                      }
+                    />
+                  </Reveal>
+                ))}
+              </div>
+            </Card>
+          </Reveal>
 
           {/* stack */}
-          <section className="card flex-1 p-6 sm:p-7 md:col-span-2">
-            <p className="label">{t(ui.stack)}</p>
-            <div className="mt-4 grid gap-5 sm:grid-cols-3 lg:grid-cols-1">
-              {stack.map((g) => (
-                <div key={g.group.en}>
-                  <p className="font-mono text-[11px] uppercase tracking-wider text-accent">{t(g.group)}</p>
-                  <ul className="mt-2.5 flex flex-wrap gap-1.5">
-                    {g.items.map((s) => (
-                      <li key={s} className="rounded-md border border-line bg-white/[0.02] px-2 py-1 text-[12px] text-muted">
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
+          <Reveal className="md:col-span-2 lg:col-span-12">
+            <Card className="p-7 sm:p-9">
+              <p className="label">{t(ui.stack)}</p>
+              <div className="mt-5 grid gap-6 sm:grid-cols-3 lg:gap-10">
+                {stack.map((g) => (
+                  <div key={g.group.en}>
+                    <p className="font-mono text-xs uppercase tracking-wider text-accent">{t(g.group)}</p>
+                    <ul className="mt-3 flex flex-wrap gap-2">
+                      {g.items.map((s) => (
+                        <motion.li
+                          key={s}
+                          whileHover={{ y: -2, borderColor: "#ff6a2b", color: "#ededed" }}
+                          transition={{ duration: 0.15 }}
+                          className="rounded-md border border-line bg-white/[0.02] px-2.5 py-1 text-[13px] text-muted"
+                        >
+                          {s}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </Reveal>
+
+          {/* gallery */}
+          {site.gallery.length > 0 && (
+            <Reveal className="md:col-span-2 lg:col-span-12">
+              <Card className="p-7 sm:p-9">
+                <p className="label">{t(ui.field)}</p>
+                <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+                  {site.gallery.map((src, i) => (
+                    <Reveal key={src} delay={i * 100}>
+                      <div className="group relative aspect-[3/4] overflow-hidden rounded-lg ring-1 ring-line transition-all duration-500 hover:scale-[1.02] hover:ring-[#3a3a42] active:scale-[1.04]">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={src}
+                          alt=""
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                      </div>
+                    </Reveal>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </section>
-
+              </Card>
+            </Reveal>
+          )}
         </div>
 
-        {/* projects */}
-        <section className="card p-6 sm:p-7 md:col-span-2 lg:col-span-7">
-          <div className="flex items-baseline justify-between">
-            <p className="label">{t(ui.projects)}</p>
-            <p className="label">2025 — {lang === "ru" ? "сейчас" : "present"}</p>
-          </div>
-          <ol className="mt-3 divide-y divide-line">
-            {projects.map((p, i) => {
-              const inner = (
-                <>
-                  <span className="w-6 shrink-0 pt-0.5 font-mono text-[11px] text-dim">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="flex flex-wrap items-center gap-2">
-                      <span className="font-semibold text-fg">{p.name}</span>
-                      {p.live && (
-                        <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-wider text-emerald-400">
-                          <span className="size-1.5 rounded-full bg-emerald-400" /> {t(ui.live)}
-                        </span>
-                      )}
-                      {p.tag && (
-                        <span className="rounded border border-accent/40 px-1.5 font-mono text-[10px] uppercase tracking-wider text-accent">
-                          {t(p.tag)}
-                        </span>
-                      )}
-                    </span>
-                    <span className="mt-1 block text-[13px] leading-snug text-muted">{t(p.desc)}</span>
-                  </span>
-                  {p.href && (
-                    <ArrowTopRightIcon className="mt-0.5 size-4 shrink-0 text-dim transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
-                  )}
-                </>
-              );
-              return (
-                <li key={p.name}>
-                  {p.href ? (
-                    <a
-                      href={p.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group -mx-2 flex gap-3 rounded-md px-2 py-3.5 transition-colors hover:bg-white/[0.03]"
-                    >
-                      {inner}
-                    </a>
-                  ) : (
-                    <div className="-mx-2 flex gap-3 px-2 py-3.5">{inner}</div>
-                  )}
-                </li>
-              );
-            })}
-          </ol>
-        </section>
-
-        {/* gallery (only when photos are listed in content.ts) */}
-        {site.gallery.length > 0 && (
-          <section className="card p-6 sm:p-7 md:col-span-2 lg:col-span-12">
-            <p className="label">{t(ui.field)}</p>
-            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-              {site.gallery.map((src) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  key={src}
-                  src={src}
-                  alt=""
-                  loading="lazy"
-                  className="aspect-[3/4] w-full rounded-lg object-cover grayscale-[30%] transition hover:grayscale-0"
-                />
-              ))}
+        <Reveal>
+          <footer className="mt-16 flex flex-col gap-7 border-t border-line pt-10 md:flex-row md:items-end md:justify-between">
+            <Typewriter text={t(ui.tagline)} />
+            <div className="flex flex-col items-start gap-4 md:items-end">
+              <Socials />
+              <div className="flex flex-wrap items-center gap-4">
+                <CopyEmail email={site.email} copied={lang === "ru" ? "Скопировано" : "Copied"} />
+                <Magnetic
+                  href={site.telegram}
+                  external
+                  className="inline-flex items-center gap-2 rounded-full bg-fg px-5 py-2.5 text-sm font-medium text-black transition-colors hover:bg-accent"
+                >
+                  <PaperPlaneIcon className="size-4" /> {t(ui.write)}
+                </Magnetic>
+              </div>
             </div>
-          </section>
-        )}
+          </footer>
+        </Reveal>
       </main>
-
-      <footer className="mt-16 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <Typewriter text={t(ui.tagline)} />
-        <div className="flex flex-col items-start gap-3 sm:items-end">
-          <Socials />
-          <div className="flex items-center gap-3">
-            <a href={`mailto:${site.email}`} className="font-mono text-[11px] text-muted hover:text-fg">
-              {site.email}
-            </a>
-            <a
-              href={site.telegram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full bg-fg px-3.5 py-1.5 text-[12px] font-medium text-black transition-colors hover:bg-accent"
-            >
-              <PaperPlaneIcon className="size-3.5" /> {t(ui.write)}
-            </a>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </MotionConfig>
   );
 }

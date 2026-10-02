@@ -97,7 +97,7 @@ export default function TiltPhoto({
         {labels.map((l) => (
           <span
             key={l.text}
-            className={`tilt-label pointer-events-none absolute select-none font-hand text-[26px] leading-none text-accent ${l.className}`}
+            className={`tilt-label pointer-events-none absolute select-none font-hand text-[30px] leading-none text-accent ${l.className}`}
             style={{ ["--r" as string]: `${l.rot}deg` }}
           >
             {l.text}
