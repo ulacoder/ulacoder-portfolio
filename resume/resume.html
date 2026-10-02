@@ -2,173 +2,93 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Ulagat Nurtas — Resume</title>
+<title>Ulagat Nurtas - Resume</title>
 <style>
-  @font-face { font-family: G; src: url(../node_modules/geist/dist/fonts/geist-sans/Geist-Regular.woff2); font-weight: 400; }
-  @font-face { font-family: G; src: url(../node_modules/geist/dist/fonts/geist-sans/Geist-Medium.woff2); font-weight: 500; }
-  @font-face { font-family: G; src: url(../node_modules/geist/dist/fonts/geist-sans/Geist-SemiBold.woff2); font-weight: 600; }
-  @font-face { font-family: G; src: url(../node_modules/geist/dist/fonts/geist-sans/Geist-Bold.woff2); font-weight: 700; }
-  @font-face { font-family: M; src: url(../node_modules/geist/dist/fonts/geist-mono/GeistMono-Regular.woff2); font-weight: 400; }
-  @font-face { font-family: M; src: url(../node_modules/geist/dist/fonts/geist-mono/GeistMono-Medium.woff2); font-weight: 500; }
-
   @page { size: A4; margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --ink: #111113; --muted: #55555c; --dim: #8a8a92; --line: #e4e4e7; --accent: #e8551a; }
-  html, body { background: #fff; }
   body {
-    font-family: G, Arial, sans-serif; color: var(--ink);
-    font-size: 9.6pt; line-height: 1.42;
-    width: 210mm; min-height: 297mm; padding: 15mm 16mm 13mm;
-    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    font-family: Arial, "Liberation Sans", Helvetica, sans-serif;
+    color: #000; font-size: 10.5pt; line-height: 1.35;
+    width: 210mm; padding: 16mm 18mm;
   }
-  a { color: inherit; text-decoration: none; }
-
-  header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 9pt; border-bottom: 1.5pt solid var(--ink); }
-  h1 { font-size: 25pt; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
-  .role { white-space: nowrap; margin-top: 5pt; font-family: M; font-size: 8.6pt; color: var(--accent); letter-spacing: 0.02em; }
-  .contact { text-align: right; font-family: M; font-size: 8pt; line-height: 1.6; color: var(--muted); }
-  .contact b { color: var(--ink); font-weight: 500; }
-
-  .summary { margin-top: 10pt; font-size: 9.8pt; color: #2a2a2e; }
-
+  a { color: #000; text-decoration: none; }
+  h1 { font-size: 20pt; font-weight: bold; text-align: center; }
+  .contact { text-align: center; margin-top: 4pt; font-size: 10pt; }
   h2 {
-    margin-top: 13pt; margin-bottom: 6pt;
-    font-family: M; font-weight: 500; font-size: 8pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim);
-    display: flex; align-items: center; gap: 8pt;
+    font-size: 11pt; font-weight: bold; text-transform: uppercase;
+    border-bottom: 0.8pt solid #000; padding-bottom: 2pt; margin: 12pt 0 6pt;
   }
-  h2::after { content: ""; flex: 1; height: 0.6pt; background: var(--line); }
-
-  .item { margin-bottom: 7.5pt; break-inside: avoid; }
-  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10pt; }
-  .title { font-weight: 600; font-size: 10.4pt; }
-  .title .sub { font-weight: 400; color: var(--muted); }
-  .meta { font-family: M; font-size: 7.8pt; color: var(--dim); white-space: nowrap; }
-  .tag { display: inline-block; margin-left: 5pt; padding: 0.5pt 4pt; border: 0.7pt solid var(--accent); border-radius: 3pt; font-family: M; font-size: 7pt; color: var(--accent); vertical-align: 1pt; text-transform: uppercase; letter-spacing: 0.04em; }
-  .desc { margin-top: 1.5pt; color: #2f2f34; }
-  ul { margin-top: 2pt; padding-left: 11pt; color: #2f2f34; }
-  li { margin-bottom: 1pt; }
-  li::marker { color: var(--accent); }
-
-  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22pt; }
-  .awards li { list-style: none; margin-left: -11pt; display: flex; justify-content: space-between; gap: 8pt; }
-  .awards li span:last-child { font-family: M; font-size: 7.8pt; color: var(--dim); white-space: nowrap; }
-  .skills { display: grid; grid-template-columns: 62pt 1fr; gap: 3pt 8pt; }
-  .skills dt { font-family: M; font-size: 7.8pt; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; padding-top: 1pt; }
-  .skills dd { color: #2f2f34; }
+  .item { margin-bottom: 7pt; }
+  .row { display: flex; justify-content: space-between; gap: 12pt; }
+  .row b { font-weight: bold; }
+  ul { padding-left: 14pt; margin-top: 2pt; }
+  li { margin-bottom: 1.5pt; }
+  p { margin-top: 2pt; }
 </style>
 </head>
 <body>
-  <header>
-    <div>
-      <h1>Ulagat Nurtas</h1>
-      <div class="role">Embedded AI &amp; Robotics · Founder of Veya</div>
-    </div>
-    <div class="contact">
-      <div><a href="https://ulacoder.vercel.app"><b>ulacoder.vercel.app</b></a></div>
-      <div><a href="mailto:nurtasulagat@gmail.com">nurtasulagat@gmail.com</a> · <a href="https://t.me/ulacoder">t.me/ulacoder</a></div>
-      <div><a href="https://github.com/ulacoder">github.com/ulacoder</a> · <a href="https://www.linkedin.com/in/ulagat-nurtas-395017393/">LinkedIn</a></div>
-      <div>Astana / Kokshetau, Kazakhstan</div>
-    </div>
-  </header>
-
-  <p class="summary">
-    16-year-old student at Nazarbayev Intellectual School. Came to programming through robotics — Arduino, sensors and motors —
-    and moved into software development and AI. My approach is simple: find a problem, figure out how to solve it, and build
-    something real. Now all-in on <b>Veya</b>, an affordable AI eye screening system, and on turning it into a startup.
-  </p>
+  <h1>Ulagat Nurtas</h1>
+  <div class="contact">
+    Astana, Kazakhstan | <a href="mailto:nurtasulagat@gmail.com">nurtasulagat@gmail.com</a> | <a href="https://t.me/ulacoder">t.me/ulacoder</a><br />
+    <a href="https://ulacoder.vercel.app">ulacoder.vercel.app</a> | <a href="https://github.com/ulacoder">github.com/ulacoder</a> | <a href="https://www.linkedin.com/in/ulagat-nurtas-395017393/">LinkedIn</a>
+  </div>
 
   <h2>Education</h2>
   <div class="item">
-    <div class="row">
-      <div class="title">Nazarbayev Intellectual School <span class="sub">· Kokshetau</span></div>
-      <div class="meta">Expected 2028</div>
-    </div>
+    <div class="row"><span><b>Nazarbayev Intellectual School</b>, Kokshetau</span><span>Expected 2028</span></div>
   </div>
 
   <h2>Projects</h2>
   <div class="item">
-    <div class="row">
-      <div class="title">Veya <span class="sub">· Founder</span></div>
-      <a class="meta" href="https://veya-web-zeta.vercel.app">veya-web-zeta.vercel.app</a>
-    </div>
-    <div class="desc">Affordable AI-powered eye screening system that turns a smartphone into a portable retinal camera.</div>
+    <div class="row"><span><b>Veya</b>, founder</span><span>veya-web-zeta.vercel.app</span></div>
+    <p>Low-cost AI eye screening system that turns a smartphone into a portable retinal camera.</p>
     <ul>
-      <li>Built the prototype: a smart attachment for the phone, a web platform and an AI model</li>
+      <li>Built the prototype: phone attachment, web platform and AI model</li>
       <li>Trained the model on thousands of retinal images</li>
-      <li>Ran customer interviews; goal is early eye-disease screening in rural areas where ophthalmologists are hard to reach</li>
+      <li>Conducted customer interviews; target use is screening in rural areas with few ophthalmologists</li>
     </ul>
   </div>
-
   <div class="item">
-    <div class="row">
-      <div class="title">KozbenSal<span class="tag">WRO 2026 · 2nd</span></div>
-      <a class="meta" href="https://github.com/ulacoder/KozbenSal">github.com/ulacoder/KozbenSal</a>
-    </div>
-    <div class="desc">Assistive eye-tracking glasses that let people with limited mobility draw, type and control a computer with eye movements and blinks. Built for about $50 versus $15,000+ for commercial alternatives.</div>
+    <div class="row"><span><b>KozbenSal</b></span><span>github.com/ulacoder/KozbenSal</span></div>
+    <p>Eye-tracking glasses that let people with limited mobility draw, type and control a computer with eye movements and blinks. Costs about $50 to build. 2nd place at WRO 2026.</p>
   </div>
-
   <div class="item">
-    <div class="row">
-      <div class="title">FMEdu<span class="tag">Future Minds · 1st</span></div>
-      <a class="meta" href="https://github.com/ulacoder/FM-Edu">github.com/ulacoder/FM-Edu</a>
-    </div>
-    <div class="desc">AI platform for personalized learning for grades 7–12. Won 1st place and 150,000 ₸ at the republican Future Minds Hackathon 2026 with Team Jacket.</div>
+    <div class="row"><span><b>FMEdu</b></span><span>github.com/ulacoder/FM-Edu</span></div>
+    <p>AI learning platform for grades 7-12. 1st place and 150,000 KZT at Future Minds Hackathon 2026.</p>
   </div>
-
   <div class="item">
-    <div class="row">
-      <div class="title">Shinobi Motion <span class="sub">· Admit Hackathon 2026</span></div>
-      <a class="meta" href="https://shinobi-motion.vercel.app">shinobi-motion.vercel.app</a>
-    </div>
-    <div class="desc">Browser game where hand signs in front of an ordinary webcam replace the keyboard and mouse. Hand recognition runs fully in the browser.</div>
+    <div class="row"><span><b>Shinobi Motion</b></span><span>shinobi-motion.vercel.app</span></div>
+    <p>Browser game controlled by hand signs through a webcam. Built at Admit Hackathon 2026.</p>
+  </div>
+  <div class="item">
+    <div class="row"><span><b>SaqDrone</b></span></div>
+    <p>Autonomous drone that finds a drowning person, flies to them and drops a rescue device.</p>
+  </div>
+  <div class="item">
+    <div class="row"><span><b>Mentoria Hub</b></span><span>mentoria-hub-hazel.vercel.app</span></div>
+    <p>Platform with scholarships, olympiads and summer programs, plus online courses and a Telegram bot.</p>
   </div>
 
-  <div class="cols">
-    <div class="item">
-      <div class="title">SaqDrone</div>
-      <div class="desc">Autonomous rescue drone that detects a drowning person, navigates to them and deploys help.</div>
-    </div>
-    <div class="item">
-      <div class="row">
-        <div class="title">Mentoria Hub</div>
-        <a class="meta" href="https://mentoria-hub-hazel.vercel.app">mentoria-hub-hazel.vercel.app</a>
-      </div>
-      <div class="desc">Scholarships, olympiads and summer programs in one place, with self-paced courses and a Telegram bot.</div>
-    </div>
-  </div>
+  <h2>Awards</h2>
+  <ul>
+    <li>Future Minds Hackathon, 1st place (2026)</li>
+    <li>WRO, 2nd place (2026)</li>
+    <li>WRO, 3rd place (2025)</li>
+    <li>StartUp Orda by Astana Hub</li>
+  </ul>
 
-  <div class="cols">
-    <div>
-      <h2>Awards</h2>
-      <ul class="awards">
-        <li><span>Future Minds Hackathon — 1st place</span><span>2026</span></li>
-        <li><span>WRO — 2nd place</span><span>2026</span></li>
-        <li><span>WRO — 3rd place</span><span>2025</span></li>
-        <li><span>StartUp Orda by Astana Hub</span><span></span></li>
-      </ul>
-    </div>
-    <div>
-      <h2>Experience</h2>
-      <div class="item">
-        <div class="row">
-          <div class="title">Freelance web developer</div>
-          <div class="meta">$700+ earned</div>
-        </div>
-        <div class="desc">Websites for restaurants and local businesses, from first call to launch.</div>
-      </div>
-      <div class="item">
-        <div class="title">AI agents <span class="sub">· independent</span></div>
-        <div class="desc">Agents for automation and ML models wired into practical tools.</div>
-      </div>
-    </div>
+  <h2>Experience</h2>
+  <div class="item">
+    <div class="row"><span><b>Freelance web developer</b></span><span>$700+ earned</span></div>
+    <p>Websites for restaurants and local businesses.</p>
   </div>
 
   <h2>Skills</h2>
-  <dl class="skills">
-    <dt>Hardware</dt><dd>Arduino, Raspberry Pi, sensors, stepper motors, cameras</dd>
-    <dt>AI / Vision</dt><dd>Python, PyTorch, TensorFlow, OpenCV, MediaPipe, Gemini API</dd>
-    <dt>Web</dt><dd>TypeScript, Next.js, React, Tailwind, FastAPI, PostgreSQL</dd>
-    <dt>Other</dt><dd>Football since age 4</dd>
-  </dl>
+  <p><b>Hardware:</b> Arduino, Raspberry Pi, sensors, motors</p>
+  <p><b>AI:</b> Python, PyTorch, TensorFlow, OpenCV, MediaPipe</p>
+  <p><b>Web:</b> TypeScript, Next.js, React, FastAPI, PostgreSQL</p>
+
+  <h2>Interests</h2>
+  <p>Football (playing since age 4), robotics</p>
 </body>
 </html>
