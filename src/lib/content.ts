@@ -50,7 +50,7 @@ export const ui = {
   field: { en: "Life", ru: "Жизнь" },
   live: { en: "live", ru: "live" },
   write: { en: "Write me", ru: "Написать" },
-  tagline: { en: "CODE. PLAY. REPEAT.", ru: "CODE. PLAY. REPEAT." },
+  tagline: { en: "WORK. EAT. REPEAT.", ru: "WORK. EAT. REPEAT." },
   labelA: { en: "builder", ru: "builder" },
   labelB: { en: "footballer", ru: "footballer" },
   labelC: { en: "coder", ru: "coder" },
