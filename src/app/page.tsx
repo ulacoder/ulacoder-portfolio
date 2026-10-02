@@ -166,27 +166,27 @@ export default function Home() {
 
         {/* visual */}
         <section
-          className="card rise relative min-h-[420px] overflow-hidden lg:col-span-4"
+          className="card rise relative min-h-[460px] overflow-hidden lg:col-span-4 lg:min-h-[540px]"
           style={{ animationDelay: "80ms" }}
         >
           {site.photo ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={site.photo} alt={site.name} className="absolute inset-0 h-full w-full object-cover" />
+            <img src={site.photo} alt={site.name} className="absolute inset-0 h-full w-full object-cover object-[50%_35%]" />
           ) : (
             <FlowField />
           )}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
-          <span className="pointer-events-none absolute left-4 top-4 -rotate-6 font-mono text-sm italic text-accent">
+          <span className="pointer-events-none absolute left-4 top-4 -rotate-6 font-mono text-sm italic text-accent [text-shadow:0_1px_8px_rgba(0,0,0,.7)]">
             {t(ui.labelA)}
           </span>
-          <span className="pointer-events-none absolute right-4 top-6 rotate-6 font-mono text-sm italic text-accent">
+          <span className="pointer-events-none absolute right-4 top-6 rotate-6 font-mono text-sm italic text-accent [text-shadow:0_1px_8px_rgba(0,0,0,.7)]">
             {t(ui.labelB)}
           </span>
           <div className="pointer-events-none absolute inset-x-4 bottom-4 flex items-end justify-between font-mono text-[10px] uppercase tracking-widest text-white/60">
             <span>
-              cam_01 <span className="text-accent">●</span> rec
+              <span className="text-accent">●</span> @{site.handle}
             </span>
-            <span>embedded.ai</span>
+            <span>2026</span>
           </div>
         </section>
 
@@ -229,7 +229,7 @@ export default function Home() {
         </section>
 
         {/* work */}
-        <section className="card flex-1 p-6 sm:p-7 md:col-span-1">
+        <section className="card p-6 sm:p-7 md:col-span-1">
           <p className="label">{t(ui.work)}</p>
           <div className="mt-4 space-y-5">
             {work.map((w) => (
@@ -249,13 +249,32 @@ export default function Home() {
           </div>
         </section>
 
+          {/* stack */}
+          <section className="card flex-1 p-6 sm:p-7 md:col-span-2">
+            <p className="label">{t(ui.stack)}</p>
+            <div className="mt-4 grid gap-5 sm:grid-cols-3 lg:grid-cols-1">
+              {stack.map((g) => (
+                <div key={g.group.en}>
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-accent">{t(g.group)}</p>
+                  <ul className="mt-2.5 flex flex-wrap gap-1.5">
+                    {g.items.map((s) => (
+                      <li key={s} className="rounded-md border border-line bg-white/[0.02] px-2 py-1 text-[12px] text-muted">
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+
         </div>
 
         {/* projects */}
         <section className="card p-6 sm:p-7 md:col-span-2 lg:col-span-7">
           <div className="flex items-baseline justify-between">
             <p className="label">{t(ui.projects)}</p>
-            <p className="label">2024 — {lang === "ru" ? "сейчас" : "present"}</p>
+            <p className="label">2025 — {lang === "ru" ? "сейчас" : "present"}</p>
           </div>
           <ol className="mt-3 divide-y divide-line">
             {projects.map((p, i) => {
@@ -303,25 +322,6 @@ export default function Home() {
               );
             })}
           </ol>
-        </section>
-
-        {/* stack */}
-        <section className="card p-6 sm:p-7 md:col-span-2 lg:col-span-12">
-          <p className="label">{t(ui.stack)}</p>
-          <div className="mt-4 grid gap-5 sm:grid-cols-3 lg:gap-10">
-            {stack.map((g) => (
-              <div key={g.group.en}>
-                <p className="font-mono text-[11px] uppercase tracking-wider text-accent">{t(g.group)}</p>
-                <ul className="mt-2.5 flex flex-wrap gap-1.5">
-                  {g.items.map((s) => (
-                    <li key={s} className="rounded-md border border-line bg-white/[0.02] px-2 py-1 text-[12px] text-muted">
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
         </section>
 
         {/* gallery (only when photos are listed in content.ts) */}
