@@ -32,8 +32,8 @@ export const ui = {
     ru: "Work. Eat. Repeat.",
   },
   bio: {
-    en: "**16**, from **Kokshetau**. Came to programming through **robotics**: Arduino, WRO, then AI, software and startups. Playing football **since 4**.",
-    ru: "**16 лет**, из **Кокшетау**. Пришёл в программирование через **робототехнику**: Arduino, WRO, потом AI, софт и стартапы. В футболе **с 4 лет**.",
+    en: "I'm **Nurtas Ulagat**, 16, from **Kokshetau, Kazakhstan**. I got into programming through **robotics** and my passion for building things. What started with **Arduino** and robotics competitions gradually turned into **AI**, software development and **startups**. I've built several projects and earned placements at **WRO** and hackathons. My biggest focus right now is **Veya**, an affordable AI-powered eye screening system that turns a smartphone into a portable retinal camera. I built the prototype, trained an AI model and conducted customer interviews. I'm now working on turning Veya into a **real startup** while preparing for international competitions and opportunities in AI and engineering.",
+    ru: "Я **Nurtas Ulagat**, мне 16, я из **Кокшетау, Казахстан**. В программирование пришёл через **робототехнику** и любовь собирать что-то своими руками. Всё началось с **Arduino** и соревнований по робототехнике, а потом переросло в **AI**, разработку софта и **стартапы**. Сделал несколько проектов, брал призовые места на **WRO** и хакатонах. Главное, чем я сейчас занят, — **Veya**: доступная система скрининга глаз на AI, которая превращает смартфон в портативную камеру для сетчатки. Я собрал прототип, обучил AI-модель и провёл интервью с клиентами. Сейчас превращаю Veya в **настоящий стартап** и готовлюсь к международным соревнованиям и возможностям в AI и инженерии.",
   },
   resume: { en: "Resume", ru: "Резюме" },
   now: { en: "Now building", ru: "Сейчас делаю" },
@@ -73,16 +73,18 @@ export const awards: T[] = [
 // Paragraphs. **bold** is highlighted.
 export const story: Record<Lang, string[]> = {
   en: [
-    "I'm **Nurtas Ulagat**, 16, from **Kokshetau, Kazakhstan**. I got into programming through **robotics** and my passion for building things.",
-    "What started with **Arduino** and **robotics competitions** gradually turned into **AI**, software development and **startups**. I've built several projects and earned placements at **WRO** and hackathons.",
-    "My biggest focus right now is **Veya**, an affordable AI-powered eye screening system that turns a **smartphone into a portable retinal camera**. I built the prototype, trained an AI model and conducted customer interviews.",
-    "I'm now working on turning Veya into a **real startup** while preparing for international competitions and opportunities in **AI and engineering**.",
+    "I grew up in the village of **Ainakol** until I was six, then moved to **Astana**, where I still live. I later got into **Nazarbayev Intellectual School in Kokshetau**, where I currently study and live in a dormitory.",
+    "My interest in technology started with **robotics**, building things with **Arduino**, sensors and motors. Over time, I moved from robotics to **software development and AI**. My approach to projects is simple: find a problem, figure out how to solve it, and build something real.",
+    "Since then, I've competed in **WRO**, earning **3rd place in 2025** and **2nd place in 2026**. I've also participated in several hackathons, including **winning Future Minds Hackathon**.",
+    "Right now, I'm all-in on **Veya**: an affordable AI-powered eye screening system that turns a **smartphone into a portable retinal camera**. I built the prototype, trained an AI model on **thousands of retinal images**, and conducted customer interviews. My goal is to make early eye disease screening more accessible, especially in **rural areas** where ophthalmologists are hard to reach.",
+    "I'm focused on developing Veya into a **real startup**, participating in international competitions, and pursuing opportunities in **AI and engineering**.",
   ],
   ru: [
-    "Я **Nurtas Ulagat**, мне 16, я из **Кокшетау, Казахстан**. В программирование пришёл через **робототехнику** и любовь собирать что-то своими руками.",
-    "Всё началось с **Arduino** и **соревнований по робототехнике**, а потом постепенно переросло в **AI**, разработку софта и **стартапы**. Сделал несколько проектов, брал призовые места на **WRO** и хакатонах.",
-    "Главное, чем я сейчас занят, — **Veya**: доступная система скрининга глаз на AI, которая превращает **смартфон в портативную камеру для сетчатки**. Я собрал прототип, обучил AI-модель и провёл интервью с клиентами.",
-    "Сейчас превращаю Veya в **настоящий стартап** и параллельно готовлюсь к международным соревнованиям и возможностям в **AI и инженерии**.",
+    "До шести лет я рос в селе **Айнаколь**, потом переехал в **Астану**, где живу до сих пор. Позже поступил в **Назарбаев Интеллектуальную школу в Кокшетау** — там сейчас учусь и живу в общежитии.",
+    "Интерес к технологиям начался с **робототехники**: собирал всякое на **Arduino**, датчиках и моторах. Со временем перешёл от робототехники к **разработке софта и AI**. Мой подход к проектам простой: найти проблему, понять, как её решить, и сделать что-то настоящее.",
+    "С тех пор выступал на **WRO**: **3 место в 2025** и **2 место в 2026**. Ещё участвовал в нескольких хакатонах и **выиграл Future Minds Hackathon**.",
+    "Сейчас я полностью в **Veya**: это доступная система скрининга глаз на AI, которая превращает **смартфон в портативную камеру для сетчатки**. Я собрал прототип, обучил AI-модель на **тысячах снимков сетчатки** и провёл интервью с клиентами. Моя цель — сделать раннюю диагностику болезней глаз доступнее, особенно в **сёлах**, куда сложно добраться офтальмологу.",
+    "Я сосредоточен на том, чтобы превратить Veya в **настоящий стартап**, участвовать в международных соревнованиях и развиваться в **AI и инженерии**.",
   ],
 };
 

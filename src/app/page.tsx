@@ -112,7 +112,7 @@ export default function Home() {
     <MotionConfig reducedMotion="user">
       <StickyHeader>
         <a href="#" className="font-mono text-sm tracking-wider text-muted transition-colors hover:text-fg">
-          <span className="text-accent">[u]</span> {site.handle}.dev
+          <span className="text-accent">[u]</span> {site.handle}
         </a>
         <motion.div
           className="flex items-center gap-1 font-mono text-xs"
@@ -155,7 +155,7 @@ export default function Home() {
                 </p>
               </After>
               <After delay={nameDone + 0.1}>
-                <p className="rich mt-5 text-[17px] leading-relaxed text-muted">
+                <p className="rich mt-5 text-[16px] leading-relaxed text-muted">
                   <Rich text={t(ui.bio)} />
                 </p>
               </After>
