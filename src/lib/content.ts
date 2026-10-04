@@ -94,7 +94,7 @@ export const projects: Project[] = [
   {
     name: "Veya",
     live: true,
-    href: "https://veya-web-zeta.vercel.app",
+    href: "https://veyaai.vercel.app",
     desc: {
       en: "Affordable AI eye screening: a smart attachment turns a smartphone into a portable retinal camera, plus a web platform and our own AI model.",
       ru: "Доступный AI-скрининг глаз: умная насадка превращает смартфон в портативную камеру для сетчатки, плюс веб-платформа и своя AI-модель.",
