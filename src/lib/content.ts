@@ -28,8 +28,8 @@ export const ui = {
   hi: { en: "Hi, I am", ru: "Привет, я" },
   role: { en: "Embedded AI & Robotics", ru: "Embedded AI и робототехника" },
   quote: {
-    en: "Work. Eat. Repeat.",
-    ru: "Work. Eat. Repeat.",
+    en: "Work it. Larp it. Repeat it.",
+    ru: "Work it. Larp it. Repeat it.",
   },
   bio: {
     en: "I'm **Nurtas Ulagat**, 16, from **Kokshetau, Kazakhstan**. I got into programming through **robotics** and my passion for building things. What started with **Arduino** and robotics competitions gradually turned into **AI**, software development and **startups**. I've built several projects and earned placements at **WRO** and hackathons. My biggest focus right now is **Veya**, an affordable AI-powered eye screening system that turns a smartphone into a portable retinal camera. I built the prototype, trained an AI model and conducted customer interviews. I'm now working on turning Veya into a **real startup** while preparing for international competitions and opportunities in AI and engineering.",
@@ -50,7 +50,7 @@ export const ui = {
   field: { en: "Life", ru: "Жизнь" },
   live: { en: "live", ru: "live" },
   write: { en: "Write me", ru: "Написать" },
-  tagline: { en: "WORK. EAT. REPEAT.", ru: "WORK. EAT. REPEAT." },
+  tagline: { en: "WORK IT. LARP IT. REPEAT IT.", ru: "WORK IT. LARP IT. REPEAT IT." },
   labelA: { en: "builder", ru: "builder" },
   labelB: { en: "footballer", ru: "footballer" },
   labelC: { en: "coder", ru: "coder" },
