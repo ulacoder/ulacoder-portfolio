@@ -60,7 +60,7 @@ export const numbers: { value: string | T; label: T }[] = [
   { value: "16", label: { en: "Years old, Kokshetau", ru: "Лет, Кокшетау" } },
   { value: { en: "since 4", ru: "с 4 лет" }, label: { en: "Playing football", ru: "Играю в футбол" } },
   { value: { en: "1 year", ru: "1 год" }, label: { en: "Writing code", ru: "Пишу код" } },
-  { value: "$700+", label: { en: "Earned freelancing", ru: "Заработал на фрилансе" } },
+  { value: "$600", label: { en: "Earned freelancing", ru: "Заработал на фрилансе" } },
 ];
 
 export const awards: T[] = [
@@ -154,7 +154,7 @@ export const stack: { group: T; items: string[] }[] = [
 export const work: { title: T; meta: T; points: T[] }[] = [
   {
     title: { en: "Freelance web developer", ru: "Веб-разработчик, фриланс" },
-    meta: { en: "Restaurants & local businesses · $700+", ru: "Рестораны и местный бизнес · $700+" },
+    meta: { en: "Restaurants & local businesses · $600", ru: "Рестораны и местный бизнес · $600" },
     points: [
       { en: "Built and deployed sites from first call to launch", ru: "Делал и запускал сайты — от первого созвона до деплоя" },
       { en: "Responsive layouts that owners can actually use", ru: "Адаптивные сайты, которыми владельцам удобно пользоваться" },
