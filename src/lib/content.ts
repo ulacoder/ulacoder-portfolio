@@ -19,8 +19,8 @@ export const site = {
     "/gallery/04-football.jpg",
     "/gallery/02-code.jpg",
     "/gallery/03-suit.jpg",
-    "/gallery/05-football.jpg",
-    "/gallery/06-sunset.jpg",
+    "/gallery/07-jas-aqmola.jpg",
+    "/gallery/08-aqmola-power.jpg",
   ] as string[],
 };
 
@@ -32,16 +32,17 @@ export const ui = {
     ru: "Work it. Larp it. Repeat it.",
   },
   bio: {
-    en: "I'm **Nurtas Ulagat**, 16, from **Kokshetau, Kazakhstan**. I got into programming through **robotics** and my passion for building things. What started with **Arduino** and robotics competitions gradually turned into **AI**, software development and **startups**. I've built several projects and earned placements at **WRO** and hackathons. My biggest focus right now is **Veya**, an affordable AI-powered eye screening system that turns a smartphone into a portable retinal camera. I built the prototype, trained an AI model and conducted customer interviews. I'm now working on turning Veya into a **real startup** while preparing for international competitions and opportunities in AI and engineering.",
-    ru: "Я **Улагат Нуртас**, мне 16, я из **Кокшетау, Казахстан**. В программирование пришёл через **робототехнику** и любовь собирать что-то своими руками. Всё началось с **Arduino** и соревнований по робототехнике, а потом переросло в **AI**, разработку софта и **стартапы**. Сделал несколько проектов, брал призовые места на **WRO** и хакатонах. Главное, чем я сейчас занят, — **Veya**: доступная система скрининга глаз на AI, которая превращает смартфон в портативную камеру для сетчатки. Я собрал прототип, обучил AI-модель и провёл интервью с клиентами. Сейчас превращаю Veya в **настоящий стартап** и готовлюсь к международным соревнованиям и возможностям в AI и инженерии.",
+    en: "I'm **Ulagat**, 16, from **Kokshetau, Kazakhstan**. Came to code through **robotics**, now I build **AI** products and **startups**. Main thing right now is **Veya**.",
+    ru: "Я **Улагат**, мне 16, я из **Кокшетау**. В код пришёл через **робототехнику**, сейчас делаю **AI**-продукты и **стартапы**. Главное сейчас — **Veya**.",
   },
   resume: { en: "Resume", ru: "Резюме" },
   now: { en: "Now building", ru: "Сейчас делаю" },
   nowText: {
-    en: "Veya: affordable AI eye screening that turns a smartphone into a retinal camera",
-    ru: "Veya: доступный AI-скрининг глаз, который превращает смартфон в камеру для сетчатки",
+    en: "Veya: AI eye screening from a smartphone",
+    ru: "Veya: AI-скрининг глаз со смартфона",
   },
-  numbers: { en: "Numbers", ru: "Цифры" },
+  progress: { en: "Progress", ru: "Прогресс" },
+  open: { en: "Open", ru: "Открыть" },
   recognized: { en: "Recognized by", ru: "Награды" },
   story: { en: "Story", ru: "История" },
   projects: { en: "Projects", ru: "Проекты" },
@@ -59,13 +60,19 @@ export const ui = {
 export const numbers: { value: string | T; label: T }[] = [
   { value: "16", label: { en: "Years old, Kokshetau", ru: "Лет, Кокшетау" } },
   { value: { en: "since 4", ru: "с 4 лет" }, label: { en: "Playing football", ru: "Играю в футбол" } },
-  { value: { en: "1 year", ru: "1 год" }, label: { en: "Writing code", ru: "Пишу код" } },
+  {
+    value: { en: "675K ₸", ru: "675 тыс ₸" },
+    label: { en: "Earned from a project in one school term", ru: "Заработал на проекте за одну учебную четверть" },
+  },
   { value: "$600", label: { en: "Earned freelancing", ru: "Заработал на фрилансе" } },
 ];
 
 export const awards: T[] = [
-  { en: "StartUp Orda by Astana Hub", ru: "StartUp Orda by Astana Hub" },
+  { en: "Aqmola Power 2026, 1st", ru: "Aqmola Power 2026, 1 место" },
   { en: "Future Minds Hackathon 2026, 1st", ru: "Future Minds Hackathon 2026, 1 место" },
+  { en: "Jas Aqmola, «Zamannan ozgan» winner", ru: "Jas Aqmola, победа в номинации «Заманнан озған»" },
+  { en: "National Founder Cup Astana, 4th", ru: "National Founder Cup Astana, 4 место" },
+  { en: "StartUp Orda by Astana Hub", ru: "StartUp Orda by Astana Hub" },
   { en: "WRO 2026 Regional, 2nd", ru: "WRO 2026, регион, 2 место" },
   { en: "WRO 2025, 3rd", ru: "WRO 2025, 3 место" },
 ];
@@ -73,33 +80,20 @@ export const awards: T[] = [
 // Paragraphs. **bold** is highlighted.
 export const story: Record<Lang, string[]> = {
   en: [
-    "I grew up in the village of **Ainakol** until I was six, then moved to **Astana**, where I still live. I later got into **Nazarbayev Intellectual School in Kokshetau**, where I currently study and live in a dormitory.",
-    "My interest in technology started with **robotics**, building things with **Arduino**, sensors and motors. Over time, I moved from robotics to **software development and AI**. My approach to projects is simple: find a problem, figure out how to solve it, and build something real.",
-    "Since then, I've competed in **WRO**, earning **3rd place in 2025** and **2nd place in 2026**. I've also participated in several hackathons, including **winning Future Minds Hackathon**.",
-    "Right now, I'm all-in on **Veya**: an affordable AI-powered eye screening system that turns a **smartphone into a portable retinal camera**. I built the prototype, trained an AI model on **thousands of retinal images**, and conducted customer interviews. My goal is to make early eye disease screening more accessible, especially in **rural areas** where ophthalmologists are hard to reach.",
-    "I'm focused on developing Veya into a **real startup**, participating in international competitions, and pursuing opportunities in **AI and engineering**.",
+    "Lived in the village of **Ainakol** until I was six, then moved to **Astana**. Now I study at **NIS Kokshetau** and live in the dorm.",
+    "Started with **robotics**: Arduino, sensors, motors. Then I got pulled into **software and AI**. Placed at **WRO** two years in a row, then came hackathons and startup competitions.",
+    "These days most of my time goes into **Veya**.",
   ],
   ru: [
-    "До шести лет я рос в селе **Айнаколь**, потом переехал в **Астану**, где живу до сих пор. Позже поступил в **Назарбаев Интеллектуальную школу в Кокшетау** — там сейчас учусь и живу в общежитии.",
-    "Интерес к технологиям начался с **робототехники**: собирал всякое на **Arduino**, датчиках и моторах. Со временем перешёл от робототехники к **разработке софта и AI**. Мой подход к проектам простой: найти проблему, понять, как её решить, и сделать что-то настоящее.",
-    "С тех пор выступал на **WRO**: **3 место в 2025** и **2 место в 2026**. Ещё участвовал в нескольких хакатонах и **выиграл Future Minds Hackathon**.",
-    "Сейчас я полностью в **Veya**: это доступная система скрининга глаз на AI, которая превращает **смартфон в портативную камеру для сетчатки**. Я собрал прототип, обучил AI-модель на **тысячах снимков сетчатки** и провёл интервью с клиентами. Моя цель — сделать раннюю диагностику болезней глаз доступнее, особенно в **сёлах**, куда сложно добраться офтальмологу.",
-    "Я сосредоточен на том, чтобы превратить Veya в **настоящий стартап**, участвовать в международных соревнованиях и развиваться в **AI и инженерии**.",
+    "До шести лет жил в селе **Айнаколь**, потом переехали в **Астану**. Сейчас учусь в **НИШ Кокшетау** и живу в общаге.",
+    "Начинал с **робототехники**: Arduino, датчики, моторы. Потом затянуло в **софт и AI**. Два года подряд брал призовые на **WRO**, потом пошли хакатоны и стартап-конкурсы.",
+    "Сейчас почти всё время уходит на **Veya**.",
   ],
 };
 
 export type Project = { name: string; desc: T; href?: string; live?: boolean; tag?: T };
 
 export const projects: Project[] = [
-  {
-    name: "Veya",
-    live: true,
-    href: "https://veyaai.vercel.app",
-    desc: {
-      en: "Affordable AI eye screening: a smart attachment turns a smartphone into a portable retinal camera, plus a web platform and our own AI model.",
-      ru: "Доступный AI-скрининг глаз: умная насадка превращает смартфон в портативную камеру для сетчатки, плюс веб-платформа и своя AI-модель.",
-    },
-  },
   {
     name: "KozbenSal",
     href: "https://github.com/ulacoder/KozbenSal",
@@ -169,3 +163,29 @@ export const work: { title: T; meta: T; points: T[] }[] = [
     ],
   },
 ];
+
+// Veya block.
+export const veya = {
+  href: "https://veyaai.vercel.app",
+  pitch: {
+    en: "A $80 attachment turns an iPhone into a retinal camera. Our model flags **retinopathy, glaucoma and cataract** in ~15 seconds, so clinics without an ophthalmologist or a $15K+ fundus camera can still screen patients. The doctor makes the final call.",
+    ru: "Насадка за $80 превращает iPhone в камеру для сетчатки. Наша модель за ~15 секунд находит риск **ретинопатии, глаукомы и катаракты**, и клиники без офтальмолога и фундус-камеры за $15K+ тоже могут проводить скрининг. Финальное решение за врачом.",
+  } as T,
+  stats: [
+    { value: "87%", label: { en: "Test accuracy", ru: "Точность на тесте" } },
+    { value: "12,000", label: { en: "Fundus images", ru: "Снимков глазного дна" } },
+    { value: "$80", label: { en: "Build cost", ru: "Себестоимость" } },
+    { value: { en: "~15 s", ru: "~15 сек" }, label: { en: "Per screening", ru: "На один скрининг" } },
+  ] as { value: string | T; label: T }[],
+  progress: [
+    { status: "done", when: "Q3 2026", text: { en: "MVP, v0.4 attachment, doctor interviews", ru: "MVP, насадка v0.4, интервью с врачами" } },
+    { status: "done", when: "09.2026", text: { en: "Tested at the NIS Kokshetau medical point", ru: "Тест в медпункте НИШ Кокшетау" } },
+    { status: "now", when: "Q4 2026", text: { en: "Ophthalmologist review, private clinic pilots in Akmola", ru: "Проверка офтальмологом, пилоты в частных клиниках Акмолы" } },
+    { status: "next", when: "Q1 2027", text: { en: "First paid contracts", ru: "Первые платные контракты" } },
+    { status: "next", when: "Q4 2027", text: { en: "20 private clinics across Kazakhstan", ru: "20 частных клиник по Казахстану" } },
+  ] as { status: "done" | "now" | "next"; when: string; text: T }[],
+  meta: {
+    en: "Incubated by StartUp Orda (Astana Hub) and NIS Incubator · Team: Ulagat Nurtas (software, AI), Abilmansur Tolendi (optics)",
+    ru: "Инкубация: StartUp Orda (Astana Hub) и NIS Incubator · Команда: Улагат Нуртас (софт, AI), Абилмансур Толенди (оптика)",
+  } as T,
+};

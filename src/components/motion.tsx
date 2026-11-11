@@ -93,7 +93,8 @@ function parse(v: string) {
   if (!m) return null;
   const n = parseFloat(m[2].replace(/[,\s ]/g, ""));
   if (isNaN(n)) return null;
-  return { prefix: m[1], n, suffix: m[3], grouped: /[,\s ]/.test(m[2].trim()) };
+  const num = m[2].trimEnd();
+  return { prefix: m[1], n, suffix: m[2].slice(num.length) + m[3], grouped: /[,\s ]/.test(num) };
 }
 
 /** Number that counts up from 0 when it scrolls into view, then a shimmer runs across it. */

@@ -23,7 +23,7 @@ import {
   SocialIcon,
   StickyHeader,
 } from "@/components/motion";
-import { awards, numbers, projects, site, stack, story, ui, work, type Lang } from "@/lib/content";
+import { awards, numbers, projects, site, stack, story, ui, veya, work, type Lang } from "@/lib/content";
 
 function Rich({ text }: { text: string }) {
   return (
@@ -217,8 +217,7 @@ export default function Home() {
           {/* numbers */}
           <Reveal delay={200} className="lg:col-span-3">
             <Card className="p-7 sm:p-8">
-              <p className="label">{t(ui.numbers)}</p>
-              <div className="mt-5 grid grid-cols-2 gap-x-5 gap-y-6 lg:grid-cols-1 lg:gap-y-5">
+              <div className="grid grid-cols-2 gap-x-5 gap-y-6 lg:grid-cols-1 lg:gap-y-5">
                 {numbers.map((n, i) => (
                   <CountUp
                     key={n.label.en}
@@ -264,7 +263,7 @@ export default function Home() {
               </Card>
             </Reveal>
 
-            <Reveal delay={80} className="lg:flex-1">
+            <Reveal delay={80}>
               <Card className="p-7 sm:p-9">
                 <p className="label">{t(ui.work)}</p>
                 <div className="mt-5 space-y-6">
@@ -286,10 +285,83 @@ export default function Home() {
               </Card>
             </Reveal>
 
+            {/* stack */}
+            <Reveal delay={120} className="md:col-span-2 lg:flex-1">
+              <Card className="p-7 sm:p-9">
+                <p className="label">{t(ui.stack)}</p>
+                <div className="mt-5 grid gap-6 sm:grid-cols-3 lg:grid-cols-1 lg:gap-5">
+                  {stack.map((g) => (
+                    <div key={g.group.en}>
+                      <p className="font-mono text-xs uppercase tracking-wider text-accent">{t(g.group)}</p>
+                      <ul className="mt-3 flex flex-wrap gap-2">
+                        {g.items.map((s) => (
+                          <motion.li
+                            key={s}
+                            whileHover={{ y: -2, borderColor: "#ff6a2b", color: "#ededed" }}
+                            transition={{ duration: 0.15 }}
+                            className="rounded-md border border-line bg-white/[0.02] px-2.5 py-1 text-[13px] text-muted"
+                          >
+                            {s}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </Reveal>
           </div>
 
+          {/* right column: veya + projects */}
+          <div className="grid gap-4 md:col-span-2 lg:col-span-7 lg:flex lg:flex-col">
+          <Reveal delay={60} className="md:col-span-2">
+            <Card className="p-7 sm:p-9">
+              <div id="veya" className="flex items-baseline justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <h2 className="text-2xl font-medium">Veya</h2>
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-emerald-400">
+                    <span className="status-pulse size-1.5 rounded-full bg-emerald-400" /> {t(ui.live)}
+                  </span>
+                </div>
+                <a
+                  href={veya.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-mono text-xs uppercase tracking-wider text-muted transition-colors hover:text-accent"
+                >
+                  {t(ui.open)} ↗
+                </a>
+              </div>
+              <p className="rich mt-4 text-[16px] leading-relaxed text-muted">
+                <Rich text={t(veya.pitch)} />
+              </p>
+              <div className="mt-6 grid grid-cols-2 gap-x-5 gap-y-5 sm:grid-cols-4">
+                {veya.stats.map((s, i) => (
+                  <CountUp key={s.label.en} value={typeof s.value === "string" ? s.value : t(s.value)} label={t(s.label)} delay={i * 120} />
+                ))}
+              </div>
+              <div className="mt-7 border-t border-line pt-5">
+                <p className="label">{t(ui.progress)}</p>
+                <ol className="mt-4 space-y-3">
+                  {veya.progress.map((p) => (
+                    <li key={p.text.en} className="flex items-start gap-3 text-[15px]">
+                      <span
+                        className={`mt-[7px] size-2 shrink-0 rounded-full ${
+                          p.status === "done" ? "bg-emerald-400" : p.status === "now" ? "status-pulse bg-accent" : "border border-dim"
+                        }`}
+                      />
+                      <span className="w-[72px] shrink-0 font-mono text-xs leading-6 text-dim">{p.when}</span>
+                      <span className={p.status === "next" ? "text-dim" : "text-fg"}>{t(p.text)}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+              <p className="mt-6 font-mono text-[11px] uppercase leading-relaxed tracking-wide text-dim">{t(veya.meta)}</p>
+            </Card>
+          </Reveal>
+
           {/* projects */}
-          <Reveal delay={100} className="md:col-span-2 lg:col-span-7">
+          <Reveal delay={100} className="md:col-span-2 lg:flex-1">
             <Card className="p-7 sm:p-9">
               <div className="flex items-baseline justify-between">
                 <p className="label">{t(ui.projects)}</p>
@@ -324,32 +396,7 @@ export default function Home() {
               </div>
             </Card>
           </Reveal>
-
-          {/* stack */}
-          <Reveal className="md:col-span-2 lg:col-span-12">
-            <Card className="p-7 sm:p-9">
-              <p className="label">{t(ui.stack)}</p>
-              <div className="mt-5 grid gap-6 sm:grid-cols-3 lg:gap-10">
-                {stack.map((g) => (
-                  <div key={g.group.en}>
-                    <p className="font-mono text-xs uppercase tracking-wider text-accent">{t(g.group)}</p>
-                    <ul className="mt-3 flex flex-wrap gap-2">
-                      {g.items.map((s) => (
-                        <motion.li
-                          key={s}
-                          whileHover={{ y: -2, borderColor: "#ff6a2b", color: "#ededed" }}
-                          transition={{ duration: 0.15 }}
-                          className="rounded-md border border-line bg-white/[0.02] px-2.5 py-1 text-[13px] text-muted"
-                        >
-                          {s}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </Card>
-          </Reveal>
+          </div>
 
           {/* gallery */}
           {site.gallery.length > 0 && (
