@@ -179,7 +179,7 @@ export const veya = {
   ] as { value: string | T; label: T }[],
   progress: [
     { status: "done", when: "Q3 2026", text: { en: "MVP, v0.4 attachment, doctor interviews", ru: "MVP, насадка v0.4, интервью с врачами" } },
-    { status: "done", when: "09.2026", text: { en: "Tested at the NIS Kokshetau medical point", ru: "Тест в медпункте НИШ Кокшетау" } },
+    { status: "done", when: "09.2026", text: { en: "Prototype validation and testing", ru: "Валидация и тестирование прототипа" } },
     { status: "now", when: "Q4 2026", text: { en: "Ophthalmologist review, private clinic pilots in Akmola", ru: "Проверка офтальмологом, пилоты в частных клиниках Акмолы" } },
     { status: "next", when: "Q1 2027", text: { en: "First paid contracts", ru: "Первые платные контракты" } },
     { status: "next", when: "Q4 2027", text: { en: "20 private clinics across Kazakhstan", ru: "20 частных клиник по Казахстану" } },
