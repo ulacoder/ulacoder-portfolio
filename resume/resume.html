@@ -8,17 +8,19 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: Arial, "Liberation Sans", Helvetica, sans-serif;
-    color: #000; font-size: 10.5pt; line-height: 1.35;
-    width: 210mm; padding: 16mm 18mm;
+    color: #000; font-size: 10pt; line-height: 1.3;
+    width: 210mm; padding: 10mm 16mm 8mm;
   }
   a { color: #000; text-decoration: none; }
   h1 { font-size: 20pt; font-weight: bold; text-align: center; }
   .contact { text-align: center; margin-top: 4pt; font-size: 10pt; }
   h2 {
     font-size: 11pt; font-weight: bold; text-transform: uppercase;
-    border-bottom: 0.8pt solid #000; padding-bottom: 2pt; margin: 12pt 0 6pt;
+    border-bottom: 0.8pt solid #000; padding-bottom: 2pt; margin: 10pt 0 5pt;
   }
-  .item { margin-bottom: 7pt; }
+  .item { margin-bottom: 5pt; }
+  .summary { margin-top: 8pt; text-align: center; font-size: 10pt; }
+  .muted { color: #333; }
   .row { display: flex; justify-content: space-between; gap: 12pt; }
   .row b { font-weight: bold; }
   ul { padding-left: 14pt; margin-top: 2pt; }
@@ -29,66 +31,70 @@
 <body>
   <h1>Ulagat Nurtas</h1>
   <div class="contact">
-    Astana, Kazakhstan | <a href="mailto:nurtasulagat@gmail.com">nurtasulagat@gmail.com</a> | <a href="https://t.me/ulacoder">t.me/ulacoder</a><br />
+    Kokshetau, Kazakhstan | <a href="mailto:nurtasulagat@gmail.com">nurtasulagat@gmail.com</a> | <a href="https://t.me/ulacoder">t.me/ulacoder</a><br />
     <a href="https://ulacoder.vercel.app">ulacoder.vercel.app</a> | <a href="https://github.com/ulacoder">github.com/ulacoder</a> | <a href="https://www.linkedin.com/in/ulagat-nurtas-395017393/">LinkedIn</a>
   </div>
+  <p class="summary">16-year-old founder building AI and hardware products. Founder of Veya (AI eye screening, incubated by StartUp Orda and NIS Incubator). 1st place at Aqmola Power 2026 and Future Minds Hackathon 2026; WRO medalist two years running.</p>
 
   <h2>Education</h2>
   <div class="item">
     <div class="row"><span><b>Nazarbayev Intellectual School</b>, Kokshetau</span><span>Expected 2028</span></div>
   </div>
 
-  <h2>Projects</h2>
+  <h2>Startup</h2>
   <div class="item">
-    <div class="row"><span><b>Veya</b>, founder</span><span><a href="https://veyaai.vercel.app">veyaai.vercel.app</a></span></div>
-    <p>Low-cost AI eye screening system that turns a smartphone into a portable retinal camera.</p>
+    <div class="row"><span><b>Veya</b>, founder (software and AI)</span><span><a href="https://veyaai.vercel.app">veyaai.vercel.app</a></span></div>
+    <p>AI screening for retinopathy, glaucoma and cataract. An $80 smartphone attachment replaces a $15,000+ fundus camera, so clinics without an ophthalmologist can screen patients.</p>
     <ul>
-      <li>Built the prototype: phone attachment, web platform and AI model</li>
-      <li>Trained the model on thousands of retinal images</li>
-      <li>Conducted customer interviews; target use is screening in rural areas with few ophthalmologists</li>
+      <li>Trained an EfficientNet-B0 model on 12,000 labeled fundus images (IDRiD, ODIR-5K); 87% accuracy on a held-out, patient-split test set of 1,800 images</li>
+      <li>Designed the v0.4 attachment with co-founder: 11 3D-printed parts, 20D lens, 11 focus positions; risk report and PDF in about 15 seconds</li>
+      <li>Interviewed doctors and tested the system at the NIS Kokshetau medical point (Sep 2026)</li>
+      <li>Preparing pilots with private clinics in Akmola Region (Q4 2026); first paid contracts planned for Q1 2027</li>
+      <li>Incubated by StartUp Orda (Astana Hub) and NIS Incubator</li>
     </ul>
   </div>
+
+  <h2>Projects</h2>
   <div class="item">
-    <div class="row"><span><b>KozbenSal</b></span><span>github.com/ulacoder/KozbenSal</span></div>
-    <p>Eye-tracking glasses that let people with limited mobility draw, type and control a computer with eye movements and blinks. Costs about $50 to build. 2nd place at WRO 2026.</p>
+    <div class="row"><span><b>KozbenSal</b>, eye-tracking glasses</span><span>github.com/ulacoder/KozbenSal</span></div>
+    <p>Lets people with limited mobility draw, type and control a computer with eye movements and blinks. About $50 to build. 2nd place, WRO 2026 regional.</p>
   </div>
   <div class="item">
-    <div class="row"><span><b>FMEdu</b></span><span>github.com/ulacoder/FM-Edu</span></div>
-    <p>AI learning platform for grades 7-12. 1st place and 150,000 KZT at Future Minds Hackathon 2026.</p>
+    <div class="row"><span><b>FMEdu</b>, AI learning platform</span><span>github.com/ulacoder/FM-Edu</span></div>
+    <p>Personalized learning for grades 7-12. 1st place and 150,000 KZT at Future Minds Hackathon 2026.</p>
   </div>
   <div class="item">
-    <div class="row"><span><b>Shinobi Motion</b></span><span>shinobi-motion.vercel.app</span></div>
-    <p>Browser game controlled by hand signs through a webcam. Built at Admit Hackathon 2026.</p>
+    <div class="row"><span><b>Shinobi Motion</b>, gesture-controlled game</span><span>shinobi-motion.vercel.app</span></div>
+    <p>Browser game played with hand signs in front of a webcam (MediaPipe). Built at Admit Hackathon 2026.</p>
   </div>
   <div class="item">
-    <div class="row"><span><b>SaqDrone</b></span></div>
-    <p>Autonomous drone that finds a drowning person, flies to them and drops a rescue device.</p>
+    <div class="row"><span><b>SaqDrone</b>, rescue drone</span></div>
+    <p>Autonomous drone that detects a drowning person, flies to them and drops a rescue device.</p>
   </div>
   <div class="item">
-    <div class="row"><span><b>Mentoria Hub</b></span><span>mentoria-hub-hazel.vercel.app</span></div>
-    <p>Platform with scholarships, olympiads and summer programs, plus online courses and a Telegram bot.</p>
+    <div class="row"><span><b>Mentoria Hub</b>, opportunities platform</span><span>mentoria-hub-hazel.vercel.app</span></div>
+    <p>Scholarships, olympiads and summer programs in one place, plus online courses and a Telegram bot.</p>
   </div>
 
   <h2>Awards</h2>
   <ul>
-    <li>Future Minds Hackathon, 1st place (2026)</li>
-    <li>WRO, 2nd place (2026)</li>
-    <li>WRO, 3rd place (2025)</li>
-    <li>StartUp Orda by Astana Hub</li>
+    <li><b>Aqmola Power 2026</b>, 1st place, 250,000 KZT grant</li>
+    <li><b>Future Minds Hackathon 2026</b>, 1st place, 150,000 KZT</li>
+    <li><b>Jas Aqmola</b> regional akim's youth prize, "Zamannan ozgan" nomination, 500,000 KZT</li>
+    <li><b>National Founder Cup</b>, Astana, 4th place</li>
+    <li><b>WRO</b>, 2nd place regional (2026), 3rd place (2025)</li>
   </ul>
 
   <h2>Experience</h2>
   <div class="item">
     <div class="row"><span><b>Freelance web developer</b></span><span>$600 earned</span></div>
-    <p>Websites for restaurants and local businesses.</p>
+    <p>Built and launched websites for restaurants and local businesses, from first call to deployment.</p>
   </div>
 
   <h2>Skills</h2>
-  <p><b>Hardware:</b> Arduino, Raspberry Pi, sensors, motors</p>
-  <p><b>AI:</b> Python, PyTorch, TensorFlow, OpenCV, MediaPipe</p>
-  <p><b>Web:</b> TypeScript, Next.js, React, FastAPI, PostgreSQL</p>
-
-  <h2>Interests</h2>
-  <p>Football (playing since age 4), robotics</p>
+  <p><b>AI / CV:</b> Python, PyTorch, TensorFlow, OpenCV, MediaPipe, EfficientNet, Gemini API</p>
+  <p><b>Hardware:</b> Arduino, Raspberry Pi, sensors, stepper motors, 3D printing, optics prototyping</p>
+  <p><b>Web:</b> TypeScript, Next.js, React, Tailwind, FastAPI, PostgreSQL</p>
+  <p><b>Languages:</b> Kazakh, Russian, English &nbsp;|&nbsp; <b>Interests:</b> football (playing since age 4), robotics</p>
 </body>
 </html>
